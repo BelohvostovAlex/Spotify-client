@@ -7,7 +7,7 @@ import { styles } from "./styles";
 
 const AppContainer: React.FC<AppContainerProps> = ({ children }) => {
   return (
-    <Container maxWidth="sm" sx={styles.appContainer}>
+    <Container maxWidth="md" sx={styles.appContainer}>
       {children}
     </Container>
   );
