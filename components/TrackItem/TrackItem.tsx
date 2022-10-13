@@ -1,12 +1,32 @@
 import React from "react";
 
-import { Box, Card } from "@mui/material";
+import { Box, Card, IconButton, Typography } from "@mui/material";
+import { Delete, Pause, PlayArrow } from "@mui/icons-material";
 
-import { styles } from "./styles";
 import { TrackItemProps } from "./interface";
+import { styles } from "./styles";
+import { useRouter } from "next/router";
 
 const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
-  return <Card sx={styles.trackItem}>{track.name}</Card>;
+  const router = useRouter();
+
+  return (
+    <Card
+      sx={styles.trackItem}
+      onClick={() => router.push("/tracks/" + track._id)}
+    >
+      <IconButton>{active ? <Pause /> : <PlayArrow />}</IconButton>
+      <Box sx={styles.trackItemImg} component={"img"} src={track.picture} />
+      <Box sx={styles.trackItemInfo}>
+        <Typography>{track.name}</Typography>
+        <Typography sx={styles.trackItemName}>{track.artist}</Typography>
+      </Box>
+      {active && <Box>02:42 / 03:22</Box>}
+      <IconButton sx={styles.trackItemDeleteBtn}>
+        <Delete />
+      </IconButton>
+    </Card>
+  );
 };
 
 export default TrackItem;

@@ -3,10 +3,10 @@ import { useRouter } from "next/router";
 
 import { Box, Card, Typography, Button } from "@mui/material";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
-
-import { styles } from "../../styles/pages/trackStyle";
-import { ITrack } from "../../types/track";
 import TrackList from "../../components/TrackList/TrackList";
+
+import { ITrack } from "../../types/track";
+import { styles } from "../../styles/pages/trackStyle";
 
 const Index = () => {
   const router = useRouter();

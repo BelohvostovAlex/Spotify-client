@@ -17,5 +17,6 @@ export const styles = {
     display: "flex",
     flexDirection: "column",
     justifyContent: "center",
+    padding: "25px",
   },
 };
