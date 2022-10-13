@@ -15,14 +15,19 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
       sx={styles.trackItem}
       onClick={() => router.push("/tracks/" + track._id)}
     >
-      <IconButton>{active ? <Pause /> : <PlayArrow />}</IconButton>
+      <IconButton onClick={(e) => e.stopPropagation()}>
+        {active ? <Pause /> : <PlayArrow />}
+      </IconButton>
       <Box sx={styles.trackItemImg} component={"img"} src={track.picture} />
       <Box sx={styles.trackItemInfo}>
         <Typography>{track.name}</Typography>
         <Typography sx={styles.trackItemName}>{track.artist}</Typography>
       </Box>
       {active && <Box>02:42 / 03:22</Box>}
-      <IconButton sx={styles.trackItemDeleteBtn}>
+      <IconButton
+        sx={styles.trackItemDeleteBtn}
+        onClick={(e) => e.stopPropagation()}
+      >
         <Delete />
       </IconButton>
     </Card>
