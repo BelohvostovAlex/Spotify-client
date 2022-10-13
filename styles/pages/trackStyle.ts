@@ -13,4 +13,9 @@ export const styles = {
     color: "black",
     padding: "10px 28px",
   },
+  trackListWrapper: {
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "center",
+  },
 };
