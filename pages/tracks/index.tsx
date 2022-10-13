@@ -50,7 +50,7 @@ const Index = () => {
           <Box sx={styles.trackCardWrapper}>
             <Typography sx={styles.trackCardTitle}>Track list</Typography>
             <Button
-              onClick={() => router.push("/track/createTrack")}
+              onClick={() => router.push("/tracks/createTrack")}
               sx={styles.trackCardBtn}
             >
               Upload
