@@ -7,6 +7,7 @@ export const styles = {
   },
   stepWrapperCard: {
     width: "600px",
+    height: "100%",
     margin: "0 auto",
   },
 };
