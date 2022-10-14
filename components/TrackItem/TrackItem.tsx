@@ -1,11 +1,13 @@
 import React from "react";
+import { useRouter } from "next/router";
+
+import PlayPauseBtn from "../PlayPauseBtn/PlayPauseBtn";
 
 import { Box, Card, IconButton, Typography } from "@mui/material";
-import { Delete, Pause, PlayArrow } from "@mui/icons-material";
+import { Delete } from "@mui/icons-material";
 
 import { TrackItemProps } from "./interface";
 import { styles } from "./styles";
-import { useRouter } from "next/router";
 
 const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
   const router = useRouter();
@@ -15,9 +17,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
       sx={styles.trackItem}
       onClick={() => router.push("/tracks/" + track._id)}
     >
-      <IconButton onClick={(e) => e.stopPropagation()}>
-        {active ? <Pause /> : <PlayArrow />}
-      </IconButton>
+      <PlayPauseBtn active={active} />
       <Box sx={styles.trackItemImg} component={"img"} src={track.picture} />
       <Box sx={styles.trackItemInfo}>
         <Typography>{track.name}</Typography>
