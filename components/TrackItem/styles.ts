@@ -12,16 +12,6 @@ export const styles = {
     width: "70px",
     height: "70px",
   },
-  trackItemInfo: {
-    display: "flex",
-    flexDirection: "column",
-    width: "200px",
-    margin: "0 20px",
-  },
-  trackItemName: {
-    fontSize: "12px",
-    color: "gray",
-  },
   trackItemDeleteBtn: {
     marginLeft: "auto",
   },

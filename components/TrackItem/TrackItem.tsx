@@ -8,6 +8,7 @@ import { Delete } from "@mui/icons-material";
 
 import { TrackItemProps } from "./interface";
 import { styles } from "./styles";
+import TrackItemInfo from "../TrackItemInfo/TrackItemInfo";
 
 const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
   const router = useRouter();
@@ -19,10 +20,7 @@ const TrackItem: React.FC<TrackItemProps> = ({ track, active = false }) => {
     >
       <PlayPauseBtn active={active} />
       <Box sx={styles.trackItemImg} component={"img"} src={track.picture} />
-      <Box sx={styles.trackItemInfo}>
-        <Typography>{track.name}</Typography>
-        <Typography sx={styles.trackItemName}>{track.artist}</Typography>
-      </Box>
+      <TrackItemInfo artist={track.artist} name={track.name} />
       {active && <Box>02:42 / 03:22</Box>}
       <IconButton
         sx={styles.trackItemDeleteBtn}
