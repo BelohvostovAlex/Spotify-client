@@ -7,6 +7,8 @@ import { PlayerProps } from "./interface";
 import { styles } from "./styles";
 import { ITrack } from "../../types/track";
 import TrackItemInfo from "../TrackItemInfo/TrackItemInfo";
+import TrackProgress from "../TrackProgress/TrackProgress";
+import { VolumeUp } from "@mui/icons-material";
 
 const Player: React.FC<PlayerProps> = () => {
   const active = false;
@@ -24,6 +26,9 @@ const Player: React.FC<PlayerProps> = () => {
     <Box sx={styles.playerWrapper}>
       <PlayPauseBtn active={active} />
       <TrackItemInfo name={track.name} artist={track.artist} />
+      <TrackProgress left={0} right={100} onChange={() => ({})} />
+      <VolumeUp style={{ marginLeft: "auto" }} />
+      <TrackProgress left={0} right={100} onChange={() => ({})} />
     </Box>
   );
 };
