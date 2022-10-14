@@ -1,6 +1,8 @@
+import { GetServerSideProps } from "next";
 import React from "react";
 
 import MainLayout from "../layouts/MainLayout/MainLayout";
+import { wrapper } from "../store";
 
 const Index = () => {
   return (
@@ -28,3 +30,9 @@ const Index = () => {
 };
 
 export default Index;
+
+export const getServerSideProps: GetServerSideProps =
+  wrapper.getServerSideProps((store) => async (ctx) => {
+    console.log(store);
+    return { props: {} };
+  });
