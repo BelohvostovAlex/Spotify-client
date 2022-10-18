@@ -14,7 +14,7 @@ const TrackProgress: React.FC<TrackProgressProps> = ({
     <Box sx={styles.trackProgressWrapper}>
       <input
         type="range"
-        min={left}
+        min={0}
         max={right}
         value={left}
         onChange={onChange}

@@ -1,3 +1,9 @@
+import { ITrack } from "../../types/track";
+
+type onClickType = (() => void) | ((e) => void);
+
 export interface PlayPauseBtnProps {
-  active: boolean;
+  pause?: boolean;
+  active?: boolean;
+  onClick: onClickType;
 }

@@ -5,10 +5,14 @@ import { IconButton } from "@mui/material";
 
 import { PlayPauseBtnProps } from "./interface";
 
-const PlayPauseBtn: React.FC<PlayPauseBtnProps> = ({ active }) => {
+const PlayPauseBtn: React.FC<PlayPauseBtnProps> = ({
+  pause,
+  onClick,
+  active,
+}) => {
   return (
-    <IconButton onClick={(e) => e.stopPropagation()}>
-      {active ? <Pause /> : <PlayArrow />}
+    <IconButton onClick={onClick}>
+      {!pause ? <Pause /> : <PlayArrow />}
     </IconButton>
   );
 };

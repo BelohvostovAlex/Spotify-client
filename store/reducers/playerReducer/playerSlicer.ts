@@ -1,12 +1,11 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { HYDRATE } from "next-redux-wrapper";
 
 import { ITrack } from "../../../types/track";
 import { PlayerState } from "./playerTypes";
 
 const initialState: PlayerState = {
   active: null,
-  volume: 0,
+  volume: 50,
   duration: 0,
   currentTime: 0,
   pause: true,
@@ -37,15 +36,7 @@ export const playerSlicer = createSlice({
       state.currentTime = action.payload;
     },
   },
-  extraReducers: {
-    [HYDRATE]: (state, action) => {
-      console.log("HYDRATE", state, action.payload);
-      return {
-        ...state,
-        ...action.payload.player,
-      };
-    },
-  },
+  extraReducers: {},
 });
 
 export const {

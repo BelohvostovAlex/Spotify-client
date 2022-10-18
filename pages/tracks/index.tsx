@@ -5,43 +5,20 @@ import { Box, Card, Typography, Button } from "@mui/material";
 import MainLayout from "../../layouts/MainLayout/MainLayout";
 import TrackList from "../../components/TrackList/TrackList";
 
-import { ITrack } from "../../types/track";
 import { styles } from "../../styles/pages/trackStyle";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
 const Index = () => {
   const router = useRouter();
-  const tracks: ITrack[] = [
-    {
-      _id: "1",
-      artist: "artist",
-      audio: "audio",
-      text: "text",
-      listens: 5,
-      comments: [],
-      name: "name",
-      picture: "pic",
-    },
-    {
-      _id: "2",
-      artist: "artist",
-      audio: "audio",
-      text: "text",
-      listens: 5,
-      comments: [],
-      name: "name2",
-      picture: "pic",
-    },
-    {
-      _id: "3",
-      artist: "artist",
-      audio: "audio",
-      text: "text",
-      listens: 5,
-      comments: [],
-      name: "name3",
-      picture: "pic",
-    },
-  ];
+  const { tracks, error } = useAppSelector((state) => state.track);
+
+  if (error) {
+    return (
+      <MainLayout>
+        <Typography>{error}</Typography>
+      </MainLayout>
+    );
+  }
 
   return (
     <MainLayout>

@@ -1,8 +1,11 @@
 import { GetServerSideProps } from "next";
 import React from "react";
+import { SERVER_URL } from "../config/apiConstants";
 
 import MainLayout from "../layouts/MainLayout/MainLayout";
+import { fetchTracks } from "../services/webService";
 import { wrapper } from "../store";
+import { getTracks } from "../store/reducers/trackReducer/trackSlicer";
 
 const Index = () => {
   return (
@@ -33,6 +36,13 @@ export default Index;
 
 export const getServerSideProps: GetServerSideProps =
   wrapper.getServerSideProps((store) => async (ctx) => {
-    console.log(store);
-    return { props: {} };
+    try {
+      const tracksData = await fetchTracks(SERVER_URL + "tracks");
+
+      store.dispatch(getTracks(tracksData));
+      return { props: {} };
+    } catch (error) {
+      console.log(error);
+      return { props: {} };
+    }
   });
